@@ -1,5 +1,5 @@
 [project]
-name = "librespot-python"
+name = "librespot"
 version = "0.1.0"
 description = "Open Source Spotify Client"
 readme = "README.md"
