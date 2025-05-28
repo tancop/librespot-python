@@ -1636,14 +1636,11 @@ class Session(Closeable, MessageListener, SubListener):
             :returns: Builder
 
             """
-            data = password
-            if len(data) // 4 != 0:
-                data = data + ("=" * (4 - (len(data) % 4)))
 
             self.login_credentials = Authentication.LoginCredentials(
                 username=username,
                 auth_type=Authentication.AuthenticationType.AUTHENTICATION_USER_PASS,
-                auth_data=base64.b64decode(data),
+                auth_data=password.encode(),
             )
             return self
 
