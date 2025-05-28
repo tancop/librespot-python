@@ -1362,8 +1362,8 @@ class Session(Closeable, MessageListener, SubListener):
                     json.dumps(
                         {
                             "username": self.__ap_welcome.canonical_username,
-                            "credentials": base64.b64encode(reusable).decode(),
-                            "type": reusable_type,
+                            "auth_data": base64.b64encode(reusable).decode(),
+                            "auth_type": reusable_type,
                         }
                     ).encode()
                 ).decode()
@@ -1371,8 +1371,8 @@ class Session(Closeable, MessageListener, SubListener):
                     json.dump(
                         {
                             "username": self.__ap_welcome.canonical_username,
-                            "credentials": base64.b64encode(reusable).decode(),
-                            "type": reusable_type,
+                            "auth_data": base64.b64encode(reusable).decode(),
+                            "auth_type": reusable_type,
                         },
                         f,
                     )
@@ -1592,6 +1592,10 @@ class Session(Closeable, MessageListener, SubListener):
                 pass
             else:
                 try:
+                    data = obj["auth_data"]
+                    if len(data) // 4 != 0:
+                        data = data + ("=" * (len(data) % 4))
+
                     self.login_credentials = Authentication.LoginCredentials(
                         auth_type=obj["auth_type"],
                         username=obj["username"],
