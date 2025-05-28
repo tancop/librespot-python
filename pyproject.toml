@@ -19,4 +19,4 @@ urls = { homepage = "https://github.com/tancop/librespot-python" }
 classifiers = ["Topic :: Multimedia :: Sound/Audio"]
 
 [tool.setuptools]
-packages.find = { where = ["librespot"] }
+packages = ["librespot", "librespot.proto", "librespot.audio"]
