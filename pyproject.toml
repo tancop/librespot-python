@@ -1,0 +1,22 @@
+[project]
+name = "librespot-python"
+version = "0.1.0"
+description = "Open Source Spotify Client"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "defusedxml>=0.7.1",
+    "protobuf==3.20.1",
+    "pycryptodomex>=3.22.0",
+    "pyogg>=0.6.14a1",
+    "requests>=2.32.3",
+    "websocket-client>=1.8.0",
+    "zeroconf>=0.146.4",
+]
+authors = [{ name = "kokarare1212" }, { name = "tancop" }]
+license = "Apache-2.0"
+urls = { homepage = "https://github.com/tancop/librespot-python" }
+classifiers = ["Topic :: Multimedia :: Sound/Audio"]
+
+[tool.setuptools]
+packages = ["librespot"]
