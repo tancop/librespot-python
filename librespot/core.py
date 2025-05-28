@@ -1592,10 +1592,6 @@ class Session(Closeable, MessageListener, SubListener):
                 pass
             else:
                 try:
-                    data = obj["auth_data"]
-                    if len(data) // 4 != 0:
-                        data = data + ("=" * (4 - (len(data) % 4)))
-
                     self.login_credentials = Authentication.LoginCredentials(
                         auth_type=obj["auth_type"],
                         username=obj["username"],
@@ -1640,10 +1636,14 @@ class Session(Closeable, MessageListener, SubListener):
             :returns: Builder
 
             """
+            data = password
+            if len(data) // 4 != 0:
+                data = data + ("=" * (4 - (len(data) % 4)))
+
             self.login_credentials = Authentication.LoginCredentials(
                 username=username,
                 auth_type=Authentication.AuthenticationType.AUTHENTICATION_USER_PASS,
-                auth_data=base64.b64decode(password),
+                auth_data=base64.b64decode(data),
             )
             return self
 
