@@ -1594,7 +1594,7 @@ class Session(Closeable, MessageListener, SubListener):
                 try:
                     data = obj["auth_data"]
                     if len(data) // 4 != 0:
-                        data = data + ("=" * (len(data) % 4))
+                        data = data + ("=" * (4 - (len(data) % 4)))
 
                     self.login_credentials = Authentication.LoginCredentials(
                         auth_type=obj["auth_type"],
