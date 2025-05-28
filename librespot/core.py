@@ -1639,7 +1639,7 @@ class Session(Closeable, MessageListener, SubListener):
             self.login_credentials = Authentication.LoginCredentials(
                 username=username,
                 auth_type=Authentication.AuthenticationType.AUTHENTICATION_USER_PASS,
-                auth_data=password,
+                auth_data=base64.b64decode(password),
             )
             return self
 
