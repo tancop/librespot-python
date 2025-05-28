@@ -1,9 +1,9 @@
 [project]
 name = "librespot"
-version = "0.1.1"
+version = "0.1.2"
 description = "Open Source Spotify Client"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.9"
 dependencies = [
     "defusedxml>=0.7.1",
     "protobuf==3.20.1",
