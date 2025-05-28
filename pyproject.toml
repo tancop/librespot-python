@@ -1,6 +1,6 @@
 [project]
 name = "librespot"
-version = "0.1.2"
+version = "0.1.4"
 description = "Open Source Spotify Client"
 readme = "README.md"
 requires-python = ">=3.9"
